@@ -15,6 +15,46 @@ document.addEventListener("DOMContentLoaded", () => {
     yearEl.textContent = new Date().getFullYear();
   }
 
+  // Back-to-top button (injected so every page gets it without repeating markup)
+  const backToTop = document.createElement("button");
+  backToTop.className = "back-to-top";
+  backToTop.type = "button";
+  backToTop.setAttribute("aria-label", "Back to top");
+  backToTop.textContent = "↑";
+  document.body.appendChild(backToTop);
+
+  window.addEventListener(
+    "scroll",
+    () => {
+      backToTop.classList.toggle("show", window.scrollY > 480);
+    },
+    { passive: true }
+  );
+
+  backToTop.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+
+  // Scroll-reveal animation for cards, steps, timeline items etc.
+  const revealTargets = document.querySelectorAll(
+    ".card, .step, .timeline-item, .value-item, .faq-item, .stat-card"
+  );
+  if (revealTargets.length && "IntersectionObserver" in window) {
+    revealTargets.forEach((el) => el.classList.add("reveal"));
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("in-view");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.15, rootMargin: "0px 0px -40px 0px" }
+    );
+    revealTargets.forEach((el) => observer.observe(el));
+  }
+
   // Contact form — submits to Web3Forms (web3forms.com), a free service
   // that emails submissions directly to the inbox tied to the access key
   // set in contact.html. No backend or paid plan required.
