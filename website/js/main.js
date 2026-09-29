@@ -35,9 +35,9 @@ document.addEventListener("DOMContentLoaded", () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 
-  // Scroll-reveal animation for cards, steps, timeline items etc.
+  // Scroll-reveal animation for cards, steps, FAQ items etc.
   const revealTargets = document.querySelectorAll(
-    ".card, .step, .timeline-item, .value-item, .faq-item, .stat-card"
+    ".card, .step, .value-item, .faq-item"
   );
   if (revealTargets.length && "IntersectionObserver" in window) {
     revealTargets.forEach((el) => el.classList.add("reveal"));
