@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.fountainit.co.uk/sitemap.xml
+Sitemap: https://fountainltd.com/sitemap.xml
