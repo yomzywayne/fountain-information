@@ -318,6 +318,104 @@ ul {
   font-size: 0.95rem;
 }
 
+.client-list {
+  list-style: none;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+}
+
+.client-list li {
+  flex: 0 0 calc((100% - 6 * 14px) / 7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 84px;
+  padding: 12px 16px;
+  text-align: center;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--navy-light);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.client-list img {
+  display: block;
+  max-width: 100%;
+  max-height: 40px;
+  object-fit: contain;
+}
+
+/* Company name label shown above a logo tile on hover, keyboard focus or tap */
+.client-list li[data-name] {
+  position: relative;
+  cursor: default;
+  outline: none;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.client-list li[data-name]::before,
+.client-list li[data-name]::after {
+  position: absolute;
+  left: 50%;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  z-index: 5;
+}
+
+.client-list li[data-name]::after {
+  content: attr(data-name);
+  bottom: calc(100% + 10px);
+  transform: translate(-50%, 4px);
+  padding: 6px 12px;
+  background: var(--navy);
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.client-list li[data-name]::before {
+  content: "";
+  bottom: calc(100% + 4px);
+  transform: translate(-50%, 4px);
+  border: 6px solid transparent;
+  border-bottom: 0;
+  border-top-color: var(--navy);
+}
+
+.client-list li[data-name]:hover,
+.client-list li[data-name]:focus {
+  border-color: var(--teal);
+  box-shadow: var(--shadow);
+}
+
+.client-list li[data-name]:hover::before,
+.client-list li[data-name]:hover::after,
+.client-list li[data-name]:focus::before,
+.client-list li[data-name]:focus::after {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+/* Stacked crest-and-name logos (DEFRA, MOD) need extra height to stay legible */
+.client-list img.logo-tall {
+  max-height: 58px;
+}
+
+/* White-only logos shown dark on the light tiles */
+.client-list img.logo-invert {
+  filter: invert(1);
+}
+
 .why-panel li:nth-child(-n + 2) {
   border-top: none;
 }
@@ -876,6 +974,10 @@ form.contact-form {
     grid-template-columns: 1fr;
   }
 
+  .client-list li {
+    flex-basis: calc((100% - 3 * 14px) / 4);
+  }
+
   .grid-3, .grid-4 {
     grid-template-columns: repeat(2, 1fr);
   }
@@ -919,6 +1021,10 @@ form.contact-form {
 
   .why-panel {
     grid-template-columns: 1fr;
+  }
+
+  .client-list li {
+    flex-basis: calc((100% - 14px) / 2);
   }
 
   .footer-services {
