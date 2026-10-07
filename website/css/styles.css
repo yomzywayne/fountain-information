@@ -411,6 +411,11 @@ ul {
   max-height: 58px;
 }
 
+/* Logos on a solid white background blend into the tile */
+.client-list img.logo-blend {
+  mix-blend-mode: multiply;
+}
+
 /* White-only logos shown dark on the light tiles */
 .client-list img.logo-invert {
   filter: invert(1);
