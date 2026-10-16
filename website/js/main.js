@@ -78,8 +78,21 @@ document.addEventListener("DOMContentLoaded", () => {
         return;
       }
 
-      const data = Object.fromEntries(new FormData(form));
-      data.name = `${data["first-name"] || ""} ${data["last-name"] || ""}`.trim();
+      // Build the email with clear labels, in reading order. Web3Forms shows
+      // each key as a heading, and uses "email" as the reply-to address.
+      const fields = Object.fromEntries(new FormData(form));
+      const fullName = `${fields["first-name"] || ""} ${fields["last-name"] || ""}`.trim();
+      const data = {
+        access_key: fields.access_key,
+        botcheck: fields.botcheck,
+        from_name: fields.from_name,
+        subject: `New website enquiry from ${fullName || "a visitor"}`,
+        name: fullName,
+        email: fields.email,
+        Company: fields.company || "Not given",
+        "Interested in": fields.interest || "Not specified",
+        Message: fields.message,
+      };
 
       const originalLabel = submitBtn ? submitBtn.textContent : "";
       if (submitBtn) {
