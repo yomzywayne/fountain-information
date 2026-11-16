@@ -161,7 +161,8 @@ ul {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 16px 0;
+  padding-top: 16px;
+  padding-bottom: 16px;
 }
 
 .brand {
@@ -173,18 +174,10 @@ ul {
   color: var(--navy);
 }
 
-.brand-mark {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
-  background: linear-gradient(135deg, var(--navy) 0%, var(--teal) 100%);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  font-weight: 800;
-  font-size: 1.1rem;
-  flex-shrink: 0;
+.brand-logo {
+  display: block;
+  height: 46px;
+  width: auto;
 }
 
 .nav-links {
@@ -758,8 +751,15 @@ form.contact-form {
 }
 
 .footer-brand .brand {
-  color: #fff;
+  display: inline-flex;
   margin-bottom: 14px;
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 10px;
+}
+
+.footer-brand .brand-logo {
+  height: 40px;
 }
 
 .footer-grid h4 {
