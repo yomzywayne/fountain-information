@@ -168,17 +168,38 @@ ul {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  font-size: 1.15rem;
-  color: var(--navy);
+  gap: clamp(8px, 0.8vw, 12px);
+  color: #00234e;
+  line-height: 1;
 }
 
-.brand-logo {
+/* Fountain icon from the company logo; the name beside it is real text so it
+   stays sharp and readable at every screen size */
+.brand-icon {
   display: block;
-  /* Scales with screen width: 22px on phones, about 44px on laptops, 48px max */
-  height: clamp(22px, calc(2.4vw + 13px), 48px);
+  height: clamp(36px, calc(1.4vw + 30px), 50px);
   width: auto;
+  flex-shrink: 0;
+}
+
+.brand-text {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.brand-name {
+  font-weight: 800;
+  font-size: clamp(1.1rem, calc(0.6vw + 0.95rem), 1.45rem);
+  letter-spacing: 0.02em;
+}
+
+.brand-sub {
+  font-weight: 700;
+  font-size: clamp(0.5rem, calc(0.15vw + 0.47rem), 0.62rem);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #00234e;
 }
 
 .nav-links {
@@ -754,13 +775,9 @@ form.contact-form {
 .footer-brand .brand {
   display: inline-flex;
   margin-bottom: 14px;
-  padding: 8px 12px;
+  padding: 10px 14px;
   background: #fff;
   border-radius: 10px;
-}
-
-.footer-brand .brand-logo {
-  height: clamp(20px, calc(2vw + 12px), 40px);
 }
 
 .footer-grid h4 {
