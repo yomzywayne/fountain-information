@@ -176,7 +176,8 @@ ul {
 
 .brand-logo {
   display: block;
-  height: 46px;
+  /* Scales with screen width: about 28px on phones up to 36px on large screens */
+  height: clamp(28px, 2.6vw, 36px);
   width: auto;
 }
 
@@ -759,7 +760,7 @@ form.contact-form {
 }
 
 .footer-brand .brand-logo {
-  height: 40px;
+  height: clamp(26px, 2.4vw, 32px);
 }
 
 .footer-grid h4 {
