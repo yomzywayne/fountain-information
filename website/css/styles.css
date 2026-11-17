@@ -772,14 +772,6 @@ form.contact-form {
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
-.footer-brand .brand {
-  display: inline-flex;
-  margin-bottom: 14px;
-  padding: 10px 14px;
-  background: #fff;
-  border-radius: 10px;
-}
-
 .footer-grid h4 {
   color: #fff;
   font-size: 0.9rem;
